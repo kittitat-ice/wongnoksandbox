@@ -6,6 +6,7 @@ import * as ROUTE from './routeName';
 import LoginScreen from '@screens/auth/Login';
 import HomeScreen from '@screens/homeFeed/Home';
 import FeedDetailScreen from '@screens/homeFeed/FeedDetail';
+import MapScreen from '@screens/homeFeed/Map';
 import PostScreen from '@screens/Post';
 
 const Routes = ({isLogin, ...props}) => {
@@ -29,6 +30,7 @@ const Routes = ({isLogin, ...props}) => {
       <MainStack.Screen name={ROUTE.HOME} component={HomeScreen} />
       <MainStack.Screen name="Post" component={PostScreen} />
       <MainStack.Screen name={ROUTE.FEED_DETAIL} component={FeedDetailScreen} />
+      <MainStack.Screen name={ROUTE.FEED_MAP} component={MapScreen} />
     </MainStack.Navigator>
   );
 

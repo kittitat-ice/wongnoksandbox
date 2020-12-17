@@ -11,6 +11,7 @@ import {
 import {ScrollView} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import {getFeedDetail} from '@redux/actions';
+import * as ROUTE from '@navigation/routeName';
 
 const FeedDetail = ({feedDetail, navigation, route, ...props}) => {
   useEffect(() => {
@@ -32,9 +33,13 @@ const FeedDetail = ({feedDetail, navigation, route, ...props}) => {
           <Text style={styles.labelDetail}>{''}</Text>
           <Text style={styles.labelDetail}>{feedDetail.condition}</Text>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonLabel}>{'MAP'}</Text>
-        </TouchableOpacity>
+        {feedDetail.lat && feedDetail.lng ? (
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate(ROUTE.FEED_MAP)}>
+            <Text style={styles.buttonLabel}>{'MAP'}</Text>
+          </TouchableOpacity>
+        ) : null}
       </ScrollView>
     </SafeAreaView>
   );
