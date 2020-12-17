@@ -12,12 +12,28 @@ import * as ROUTE from '@navigation/routeName';
 import {getFeed} from '@redux/actions';
 import {connect} from 'react-redux';
 import ScrollPercentBar from '@components/ScrollPercentBar';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Home = ({feed, navigation, ...props}) => {
   const [scrollPercent, setScrollPercent] = useState('0%');
 
   useEffect(() => {
     props.getFeed();
+    navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate(ROUTE.CONCALL)}
+          style={styles.concallButton}>
+          <Ionicons name="videocam" size={24} color="#fff" />
+        </TouchableOpacity>
+      ),
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate(ROUTE.USER_PROFILE)}
+          style={styles.avatarButton}
+        />
+      ),
+    });
   }, []);
 
   const renderUser = ({item, index}) => {
@@ -85,6 +101,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  avatarButton: {
+    backgroundColor: 'tomato',
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    marginHorizontal: 5,
+  },
+  concallButton: {
+    //backgroundColor: 'tomato',
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    marginHorizontal: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
     width: '100%',
