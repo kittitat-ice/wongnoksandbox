@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {loginUser} from '@redux/actions';
 import {connect} from 'react-redux';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Login = ({isLogin, navigation, ...props}) => {
   const [username, setUsername] = useState();
@@ -25,7 +26,9 @@ const Login = ({isLogin, navigation, ...props}) => {
       <View style={styles.logo} />
       <View style={styles.loginPanel}>
         <View style={styles.rowContainer}>
-          <View style={styles.IMGPH} />
+          <View style={styles.IMGPH}>
+            <FontAwesome name="user" size={35} />
+          </View>
           <TextInput
             autoCapitalize={'none'}
             onChangeText={(string) => setUsername(string)}
@@ -34,7 +37,9 @@ const Login = ({isLogin, navigation, ...props}) => {
           />
         </View>
         <View style={styles.rowContainer}>
-          <View style={styles.IMGPH} />
+          <View style={styles.IMGPH}>
+            <FontAwesome name="lock" size={35} />
+          </View>
           <TextInput
             secureTextEntry
             value={password}
@@ -88,9 +93,11 @@ const styles = StyleSheet.create({
   IMGPH: {
     width: 40,
     height: 40,
-    borderRadius: 50,
-    backgroundColor: 'gray',
+    //borderRadius: 50,
+    //backgroundColor: 'gray',
     marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textInput: {
     flex: 1,
