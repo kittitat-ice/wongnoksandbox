@@ -12,8 +12,8 @@ import {connect} from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Login = ({isLogin, navigation, ...props}) => {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState('incloud');
+  const [password, setPassword] = useState('incloud');
 
   useEffect(() => {
     if (isLogin) {

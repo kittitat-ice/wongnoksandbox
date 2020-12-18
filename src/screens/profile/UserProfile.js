@@ -10,26 +10,13 @@ import {
 import {connect} from 'react-redux';
 import {TabView, TabBar} from 'react-native-tab-view';
 
-const data = {
-  id: 1,
-  username: 'ABC>.',
-  name: 'Kittitat',
-  lastname: 'Poonsombutpinyo',
-  avatar: 'https://placeimg.com/640/480/any',
-  phone: '0813716605',
-  email: 'kittitat.ice@gmail.com',
-  github: 'kittitat-ice',
-  job: 'Programmer',
-  salary: 500000,
-};
-
 const routes = [
   {key: '0', title: 'About Me'},
   {key: '1', title: 'Skill & Exp'},
   {key: '2', title: 'Social'},
 ];
 
-const UserProfile = ({navigation, ...props}) => {
+const UserProfile = ({userData, navigation, ...props}) => {
   const [index, setIndex] = React.useState(0);
 
   const renderTabScreen = () => {
@@ -62,7 +49,7 @@ const UserProfile = ({navigation, ...props}) => {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{flex: 1}}>
         <View style={styles.header}>
-          <Text>{data.name}</Text>
+          <Text>{userData.name}</Text>
         </View>
         <TabView
           navigationState={{index, routes}}
@@ -86,7 +73,9 @@ const UserProfile = ({navigation, ...props}) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  userData: state.user.userData,
+});
 
 const mapDispatchToProps = {};
 

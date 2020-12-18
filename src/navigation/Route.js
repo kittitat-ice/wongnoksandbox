@@ -42,7 +42,11 @@ const Routes = ({isLogin, ...props}) => {
   );
 
   return (
-    <NavigationContainer>{isLogin ? <Main /> : <Login />}</NavigationContainer>
+    <>
+      <NavigationContainer>
+        {isLogin ? <Main /> : <Login />}
+      </NavigationContainer>
+    </>
   );
 };
 const mapStateToProps = (state) => ({
