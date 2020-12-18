@@ -11,11 +11,12 @@ target 'fbfeedsandbox' do
   pod 'GoogleMaps'
   pod 'Google-Maps-iOS-Utils'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'fbfeedsandboxTests' do
     inherit! :complete
