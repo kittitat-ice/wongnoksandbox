@@ -211,6 +211,7 @@ const UserProfile = ({userData, navigation, ...props}) => {
                       flex: 1,
                       backgroundColor: getLevelBarColor(item.level),
                       width: `${item.level}%`,
+                      borderRadius: 12,
                     }}
                   />
                 </View>
@@ -229,6 +230,7 @@ const UserProfile = ({userData, navigation, ...props}) => {
                       flex: 1,
                       backgroundColor: getLevelBarColor(item.level),
                       width: `${item.level}%`,
+                      borderRadius: 12,
                     }}
                   />
                 </View>
@@ -378,6 +380,7 @@ const styles = StyleSheet.create({
     margin: 5,
     borderWidth: 1,
     borderColor: '#ddd',
+    borderRadius: 12,
   },
   socialIconContainer: {
     width: 32,
