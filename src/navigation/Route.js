@@ -27,7 +27,7 @@ const Routes = ({isLogin, ...props}) => {
       screenOptions={{
         headerBackTitle: 'Back',
         headerTintColor: '#fff',
-        headerStyle: {backgroundColor: '#77c'},
+        headerStyle: {backgroundColor: '#77c', shadowColor: 'transparent'},
       }}>
       <MainStack.Screen name={ROUTE.HOME} component={HomeScreen} />
       <MainStack.Screen name="Post" component={PostScreen} />

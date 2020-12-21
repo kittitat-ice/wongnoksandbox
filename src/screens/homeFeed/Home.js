@@ -13,8 +13,9 @@ import {getFeed} from '@redux/actions';
 import {connect} from 'react-redux';
 import ScrollPercentBar from '@components/ScrollPercentBar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Dot from '@components/common/Dot';
 
-const Home = ({feed, navigation, ...props}) => {
+const Home = ({feed, userData, navigation, ...props}) => {
   const [scrollPercent, setScrollPercent] = useState('0%');
 
   useEffect(() => {
@@ -29,9 +30,21 @@ const Home = ({feed, navigation, ...props}) => {
       ),
       headerRight: () => (
         <TouchableOpacity
-          onPress={() => navigation.navigate(ROUTE.USER_PROFILE)}
-          style={styles.avatarButton}
-        />
+          onPress={() => navigation.navigate(ROUTE.USER_PROFILE)}>
+          <Image style={styles.avatar} source={{uri: userData.avatar}} />
+          <Dot
+            size={16}
+            color="#77c"
+            style={{
+              position: 'absolute',
+              right: 5,
+              bottom: 0,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Dot size={12} color="#f00" />
+          </Dot>
+        </TouchableOpacity>
       ),
     });
   }, []);
@@ -89,6 +102,7 @@ const Home = ({feed, navigation, ...props}) => {
 
 const mapStateToProps = (state) => ({
   feed: state.feed.feed,
+  userData: state.user.userData,
 });
 
 const mapDispatchToProps = {
@@ -102,12 +116,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  avatarButton: {
-    backgroundColor: 'tomato',
-    width: 30,
-    height: 30,
+  avatar: {
+    backgroundColor: '#77c',
+    width: 32,
+    height: 32,
     borderRadius: 50,
-    marginHorizontal: 5,
+    marginHorizontal: 10,
   },
   concallButton: {
     //backgroundColor: 'tomato',
